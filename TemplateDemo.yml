@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars:
+  description: This is for Demo purpose
+  tasks:
+  - name: Using Templates Demo
+    template:
+      src: info.j2
+      dest: /etc/ansible/info

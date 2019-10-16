@@ -1,0 +1,12 @@
+---
+- hosts: WebServer
+  become: yes
+  tasks:
+  - name: Installing the "{{ item }}"
+    yum:
+     name: "{{ item }}"
+     state: removed
+    with_items:
+    - git
+    - tree
+    - wget

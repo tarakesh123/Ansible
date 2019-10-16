@@ -1,0 +1,11 @@
+---
+- hosts: WebServer
+  become: yes
+  tasks:
+  - name: Installing the "{{ item }}"
+    yum:
+     name: "{{ item }}"
+    with_items:
+    - git
+    - tree
+    - wget

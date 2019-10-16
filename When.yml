@@ -1,0 +1,18 @@
+---
+- hosts: WebServer
+  become: yes
+  tasks:
+  - name: Installing Tomacat on RedHat Mechines
+    yum:
+      name: httpd
+      state: present
+    
+    when: ansible_os_family == "RedHat"
+  - name: Installing Tomcat on Ubuntu Mechines
+    apt:
+      name: apache2
+      state: present
+    when: ansible_os_family == "Debian"
+  - name: Print free Memory
+    debug:
+      msg: "Free memory is: {{ansible_memory_mb.real.free}}"
