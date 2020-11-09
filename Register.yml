@@ -2,8 +2,8 @@
 - hosts: WebServer
   tasks:
   - name: Reading content from the file
-    command: cat /home/ansible/test
+    command: cat /etc/ansible/Ansible_Examples/Test
     register: cat_contents
-  - name: Display the content of the file
+  - name: Display the content 
     debug:
       msg: "{{cat_contents}}"
